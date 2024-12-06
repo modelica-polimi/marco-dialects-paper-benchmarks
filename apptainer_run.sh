@@ -2,6 +2,7 @@
 
 path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
+"$path/marco_clone.sh"
 "$path/apptainer_build.sh"
 mkdir -p "$path/output"
 mkdir -p "$path/root"
