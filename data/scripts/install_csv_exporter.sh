@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Building csv_exporter"
+
 rm -rf /tmp/csv_exporter-build
 mkdir /tmp/csv_exporter-build
 
