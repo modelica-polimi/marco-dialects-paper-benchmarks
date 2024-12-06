@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Installing MARCO"
+
 rm -rf /tmp/marco-build
 mkdir /tmp/marco-build
 
