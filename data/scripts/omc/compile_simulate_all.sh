@@ -15,10 +15,10 @@ sim_args=${@:2}
 "$path/compile_simulate_config.sh" 33 33 11 $solver $sim_args || exit 1
 "$path/compile_simulate_config.sh" 39 39 13 $solver $sim_args || exit 1
 "$path/compile_simulate_config.sh" 54 54 18 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 66 66 22 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 84 84 28 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 114 114 38 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 144 144 48 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 183 183 61 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 246 246 82 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 312 312 104 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 66 66 22 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 84 84 28 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 114 114 38 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 144 144 48 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 183 183 61 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 246 246 82 $solver $sim_args || exit 1
+"$path/compile_simulate_config.sh" 312 312 104 $solver $sim_args || exit 1
