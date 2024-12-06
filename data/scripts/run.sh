@@ -16,4 +16,7 @@ echo "OMC version"
 omc --version
 
 rm -rf $BUILD_DIR
-tar -czvf /output/run-$(date +%s).tar.gz $LOG_DIR $RESULTS_DIR &> /dev/null
+date=$(date +%s)
+tar -czvf /output/run-${date}.tar.gz $LOG_DIR $RESULTS_DIR &> /dev/null
+/root/install/csv_exporter/csv_exporter $LOG_DIR euler-forward > /output/run/run-${date}-euler-forward.csv
+/root/install/csv_exporter/csv_exporter $LOG_DIR ida > /output/run/run-${date}-ida.csv
