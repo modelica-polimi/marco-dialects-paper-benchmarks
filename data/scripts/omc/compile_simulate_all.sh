@@ -22,4 +22,3 @@ sim_args=${@:2}
 #"$path/compile_simulate_config.sh" 183 183 61 $solver $sim_args || exit 1
 #"$path/compile_simulate_config.sh" 246 246 82 $solver $sim_args || exit 1
 #"$path/compile_simulate_config.sh" 312 312 104 $solver $sim_args || exit 1
-#"$path/compile_simulate_config.sh" 393 393 131 $solver $sim_args || exit 1
