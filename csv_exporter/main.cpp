@@ -27,10 +27,10 @@ struct TimeStatistics {
 };
 
 struct SizeStatistics {
-    long long int average{-1};
-    long long int median{-1};
-    long long int min{-1};
-    long long int max{-1};
+    double average{-1};
+    double median{-1};
+    double min{-1};
+    double max{-1};
 };
 
 void run(const std::string& logDir, const std::vector<Config>& configs);
@@ -73,11 +73,11 @@ bool parse_cOMCFrontend(const std::string& logDir, const Config& config, double 
 bool parse_cMARCOOnly(const std::string& logDir, const Config& config, double data[2][4]);
 bool parse_sMARCO(const std::string& logDir, const Config& config, double data[2]);
 bool parse_sOMC(const std::string& logDir, const Config& config, double data[2]);
-bool parse_csMARCObmodelica(const std::string& logDir, const Config& config, long long int data[4]);
-bool parse_csMARCOLLVMIR(const std::string& logDir, const Config& config, long long int data[4]);
-bool parse_csMARCOBinary(const std::string& logDir, const Config& config, long long int& data);
-bool parse_csOMCC(const std::string& logDir, const Config& config, long long int& data);
-bool parse_csOMCBinary(const std::string& logDir, const Config& config, long long int& data);
+bool parse_csMARCObmodelica(const std::string& logDir, const Config& config, double data[4]);
+bool parse_csMARCOLLVMIR(const std::string& logDir, const Config& config, double data[4]);
+bool parse_csMARCOBinary(const std::string& logDir, const Config& config, double& data);
+bool parse_csOMCC(const std::string& logDir, const Config& config, double& data);
+bool parse_csOMCBinary(const std::string& logDir, const Config& config, double& data);
 
 template<typename T>
 void printValue(std::ostream& os, T value) {
@@ -118,7 +118,7 @@ void run(const std::string& logDir, const std::vector<Config>& configs) {
         double cOMC[2];
         double cOMCFrontend[2][4], cMARCOOnly[2][4];
         double sMARCO[2], sOMC[2];
-        long long int csMARCObmodelica[4], csMARCOLLVMIR[4], csMARCOBinary, csOMCC, csOMCBinary;
+        double csMARCObmodelica[4], csMARCOLLVMIR[4], csMARCOBinary, csOMCC, csOMCBinary;
 
         parse_cOMC(logDir, config, cOMC);
         parse_cOMCFrontend(logDir, config, cOMCFrontend);
@@ -214,10 +214,10 @@ TimeMeasure parseTimeMeasure(FILE* f) {
 SizeStatistics parseSizeStatistics(FILE* f) {
     SizeStatistics result;
 
-    fscanf(f, " Average: %lld", &result.average);
-    fscanf(f, " Median: %lld", &result.median);
-    fscanf(f, " Min: %lld", &result.min);
-    fscanf(f, " Max: %lld", &result.max);
+    fscanf(f, " Average: %lf", &result.average);
+    fscanf(f, " Median: %lf", &result.median);
+    fscanf(f, " Min: %lf", &result.min);
+    fscanf(f, " Max: %lf", &result.max);
 
     return result;
 }
@@ -345,7 +345,7 @@ bool parse_sOMC(const std::string& logDir, const Config& config, double data[2])
     return true;
 }
 
-bool parse_csMARCObmodelica(const std::string& logDir, const Config& config, long long int data[4]) {
+bool parse_csMARCObmodelica(const std::string& logDir, const Config& config, double data[4]) {
     std::string filePath = logDir + "/marco/bmodelica-size_" + getConfigString(config) + ".txt";
     FILE* f = fopen(filePath.c_str(), "r");
 
@@ -368,7 +368,7 @@ bool parse_csMARCObmodelica(const std::string& logDir, const Config& config, lon
     return true;
 }
 
-bool parse_csMARCOLLVMIR(const std::string& logDir, const Config& config, long long int data[4]) {
+bool parse_csMARCOLLVMIR(const std::string& logDir, const Config& config, double data[4]) {
     std::string filePath = logDir + "/marco/llvmir-size_" + getConfigString(config) + ".txt";
     FILE* f = fopen(filePath.c_str(), "r");
 
@@ -391,7 +391,7 @@ bool parse_csMARCOLLVMIR(const std::string& logDir, const Config& config, long l
     return true;
 }
 
-bool parse_csMARCOBinary(const std::string& logDir, const Config& config, long long int& data) {
+bool parse_csMARCOBinary(const std::string& logDir, const Config& config, double& data) {
     std::string filePath = logDir + "/marco/marco-binary-size_" + getConfigString(config) + ".txt";
     FILE* f = fopen(filePath.c_str(), "r");
 
@@ -400,12 +400,12 @@ bool parse_csMARCOBinary(const std::string& logDir, const Config& config, long l
         return false;
     }
 
-    fscanf(f, "%lld", &data);
+    fscanf(f, "%lf", &data);
     fclose(f);
     return true;
 }
 
-bool parse_csOMCC(const std::string& logDir, const Config& config, long long int& data) {
+bool parse_csOMCC(const std::string& logDir, const Config& config, double& data) {
     std::string filePath = logDir + "/omc/omc-c-size_" + getConfigString(config) + ".txt";
     FILE* f = fopen(filePath.c_str(), "r");
 
@@ -414,12 +414,12 @@ bool parse_csOMCC(const std::string& logDir, const Config& config, long long int
         return false;
     }
 
-    fscanf(f, "%lld", &data);
+    fscanf(f, "%lf", &data);
     fclose(f);
     return true;
 }
 
-bool parse_csOMCBinary(const std::string& logDir, const Config& config, long long int& data) {
+bool parse_csOMCBinary(const std::string& logDir, const Config& config, double& data) {
     std::string filePath = logDir + "/omc/omc-binary-size_" + getConfigString(config) + ".txt";
     FILE* f = fopen(filePath.c_str(), "r");
 
@@ -428,7 +428,7 @@ bool parse_csOMCBinary(const std::string& logDir, const Config& config, long lon
         return false;
     }
 
-    fscanf(f, "%lld", &data);
+    fscanf(f, "%lf", &data);
     fclose(f);
     return true;
 }
