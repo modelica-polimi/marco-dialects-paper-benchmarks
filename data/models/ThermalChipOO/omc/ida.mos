@@ -1,0 +1,13 @@
+loadFile("ThermalChipOO.mo");
+getErrorString();
+setCommandLineOptions("--daeMode");
+getErrorString();
+buildModel(
+    ThermalChipOO.Models.ThermalChipSimpleBoundary,
+    method="ida",
+    stopTime=0.4,
+    outputFormat="csv",
+    variableFilter="Tct1|Tct2|Tct3|Tct4|Tcb1|Tcb2|Tcb3|Tcb4",
+    cflags="-O0",
+    simflags="-noEquidistantTimeGrid -lv=LOG_STATS_V -r=\"results.csv\"");
+getErrorString();

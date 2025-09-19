@@ -1,0 +1,13 @@
+loadFile("MethanolHeatExchangersDAE.mo");
+getErrorString();
+setCommandLineOptions("--daeMode");
+getErrorString();
+buildModel(
+    MethanolHeatExchangersDAE.Models.MethanolHeatExchangers,
+    method="ida",
+    stopTime=40,
+    outputFormat="csv",
+    variableFilter="T_m",
+    cflags="-O0",
+    simflags="-noEquidistantTimeGrid -lv=LOG_STATS_V -r=\"results.csv\"");
+getErrorString();
