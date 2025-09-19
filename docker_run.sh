@@ -2,17 +2,15 @@
 
 path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
-"$path/marco_clone.sh"
 "$path/docker_upgrade.sh"
 "$path/docker_build.sh"
 mkdir -p "$path/output"
 
 docker run --rm \
+	-u $(id -u):$(id -g) \
 	-v "$path/data":/data \
-	-v "$path/marco":/tmp/marco-src \
-	-v "$path/csv_exporter":/tmp/csv_exporter-src \
 	-v "$path/output":/output \
-	-e COMPILE_TIMEOUT=18000 \
-	-e SIMULATE_TIMEOUT=18000 \
+	-e COMPILATION_TIMEOUT=3600 \
+	-e SIMULATION_TIMEOUT=10800 \
 	marco-benchmarks \
 	bash -c "/data/run.sh"

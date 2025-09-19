@@ -2,8 +2,17 @@
 
 path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
-cat /etc/hostname
+echo  "--------------------------------------------------------------------------------"
+echo "Hostname: $(cat /etc/hostname)"
+echo  "--------------------------------------------------------------------------------"
+echo "CPU Info:"
 cat /proc/cpuinfo
-"$path/scripts/install_csv_exporter.sh" 
-"$path/scripts/install_marco.sh" 
-"$path/scripts/run.sh"
+echo  "--------------------------------------------------------------------------------"
+echo "MARCO version"
+marco --version
+echo  "--------------------------------------------------------------------------------"
+echo "OMC version"
+omc --version
+echo  "--------------------------------------------------------------------------------"
+
+"$path/models/run.sh"
