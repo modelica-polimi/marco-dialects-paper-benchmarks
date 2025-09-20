@@ -17,7 +17,7 @@ marco \
   --variable-filter="T_m" \
   -Xmarco -no-multithreading \
   -Xmarco -no-equations-runtime-scheduling \
-  -c -emit-mlir
+  -c -emit-mlir \
   $COMPILATION_ARGS || exit 1
 
 BMODELICA_SIZE_FILE=$STATS_DIR/marco-bmodelica-size-$EXPERIMENT.txt
@@ -32,7 +32,7 @@ marco \
   --variable-filter="T_m" \
   -Xmarco -no-multithreading \
   -Xmarco -no-equations-runtime-scheduling \
-  -c -emit-llvm
+  -c -emit-llvm \
   $COMPILATION_ARGS || exit 1
 
 LLVMIR_SIZE_FILE=$STATS_DIR/marco-llvmir-size-$EXPERIMENT.txt
