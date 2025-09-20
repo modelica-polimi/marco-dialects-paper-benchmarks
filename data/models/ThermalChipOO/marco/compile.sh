@@ -17,7 +17,7 @@ marco \
   --variable-filter="Tct1;Tct2;Tct3;Tct4;Tcb1;Tcb2;Tcb3;Tcb4" \
   -Xmarco -no-multithreading \
   -Xmarco -no-equations-runtime-scheduling \
-  -c -emit-mlir
+  -c -emit-mlir \
   $COMPILATION_ARGS || exit 1
 
 BMODELICA_SIZE_FILE=$STATS_DIR/marco-bmodelica-size-$EXPERIMENT.txt
@@ -32,7 +32,7 @@ marco \
   --variable-filter="Tct1;Tct2;Tct3;Tct4;Tcb1;Tcb2;Tcb3;Tcb4" \
   -Xmarco -no-multithreading \
   -Xmarco -no-equations-runtime-scheduling \
-  -c -emit-llvm
+  -c -emit-llvm \
   $COMPILATION_ARGS || exit 1
 
 LLVMIR_SIZE_FILE=$STATS_DIR/marco-llvmir-size-$EXPERIMENT.txt
