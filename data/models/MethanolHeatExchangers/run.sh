@@ -25,8 +25,6 @@ $path/omc/run.sh
 # Export the statistics
 echo "Exporting statistics for MethanolHeatExchangers"
 $TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT euler-forward > $STATS_ROOT/MethanolHeatExchangers-euler-forward.csv
-$TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT rk4 > $STATS_ROOT/MethanolHeatExchangers-rk4.csv
-$TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT euler-backward > $STATS_ROOT/MethanolHeatExchangers-euler-backward.csv
 $TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT ida > $STATS_ROOT/MethanolHeatExchangers-ida.csv
 
 # Clean up
