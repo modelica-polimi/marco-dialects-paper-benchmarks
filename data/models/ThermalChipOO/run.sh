@@ -25,8 +25,6 @@ $path/omc/run.sh
 # Export the statistics
 echo "Exporting statistics for ThermalChipOO"
 $TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT euler-forward > $STATS_ROOT/ThermalChipOO-euler-forward.csv
-$TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT rk4 > $STATS_ROOT/ThermalChipOO-rk4.csv
-$TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT euler-backward > $STATS_ROOT/ThermalChipOO-euler-backward.csv
 $TOOL_DIR/install/csv_exporter/bin/csv_exporter $MODEL_STATS_ROOT ida > $STATS_ROOT/ThermalChipOO-ida.csv
 
 # Clean up
