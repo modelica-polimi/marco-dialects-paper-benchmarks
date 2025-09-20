@@ -11,7 +11,7 @@ COMPILATION_TIME_FILE=$STATS_DIR/omc-compilation-time-$EXPERIMENT.txt
 
 # Get the C code size
 C_SIZE_FILE=$STATS_DIR/omc-c-size_$EXPERIMENT.txt
-du -scb $BUILD_DIR/*.h $BUILD_DIR/*.c $BUILD_DIR/*.cpp | tail -n1 > $C_SIZE_FILE
+du -scb $BUILD_DIR/*.h $BUILD_DIR/*.c | tail -n1 > $C_SIZE_FILE
 
 # Get the binary size
 BINARY_SIZE_FILE=$STATS_DIR/omc-binary-size-$EXPERIMENT.txt
