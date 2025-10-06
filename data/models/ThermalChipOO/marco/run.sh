@@ -15,16 +15,16 @@ mkdir -p $STATS_DIR
 # Euler Forward
 
 export EXPERIMENT_NAME="euler-forward"
-export COMPILATION_ARGS="--solver=euler-forward -Xmarco -equations-runtime-scheduling"
-export SIMULATION_ARGS="--time-step=0.0000015 --end-time=0.4"
+export COMPILATION_ARGS="--solver=euler-forward -Xmarco -no-multithreading -Xmarco -no-equations-runtime-scheduling"
+export SIMULATION_ARGS="--time-step=0.0000015 --end-time=0.4 --disable-multithreading"
 
 "$path/compile_simulate_all.sh"
 
 # IDA
 
 export EXPERIMENT_NAME="ida"
-export COMPILATION_ARGS="--solver=ida -Xmarco -equations-runtime-scheduling"
-export SIMULATION_ARGS="--end-time=0.4"
+export COMPILATION_ARGS="--solver=ida -Xmarco -no-multithreading -Xmarco -no-equations-runtime-scheduling"
+export SIMULATION_ARGS="--end-time=0.4 --disable-multithreading"
 
 "$path/compile_simulate_all.sh"
 
