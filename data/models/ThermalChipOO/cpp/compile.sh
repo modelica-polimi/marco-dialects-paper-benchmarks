@@ -4,7 +4,7 @@ path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 # C++ code size
 CPP_SIZE_FILE=$STATS_DIR/cpp-cpp-size-$EXPERIMENT.txt
-du -scb $SRC_DIR/*.h $SRC_DIR/*.c $SRC_DIR/*.cpp $SRC_DIR/*.hpp | tail -n1 > $C_SIZE_FILE
+du -scb $SRC_DIR/*.h $SRC_DIR/*.c $SRC_DIR/*.cpp $SRC_DIR/*.hpp | tail -n1 > $CPP_SIZE_FILE
 
 # Binary
 
