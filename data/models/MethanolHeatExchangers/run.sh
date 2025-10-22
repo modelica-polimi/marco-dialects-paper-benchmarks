@@ -21,6 +21,7 @@ export MODEL_STATS_ROOT=$STATS_ROOT/MethanolHeatExchangers
 # Run the benchmarks
 $path/marco/run.sh
 $path/omc/run.sh
+$path/cpp/run.sh
 
 # Export the statistics
 echo "Exporting statistics for MethanolHeatExchangers"
