@@ -4,7 +4,7 @@ project(ThermalChip VERSION 1.0.0 LANGUAGES CXX)
 
 set (app_name "simulation")
 
-string (APPEND CMAKE_MODULE_PATH "common")
+string (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/common")
 include (common) # defines common headers and cpp files, including main.cpp
 
 set (app_src
