@@ -16,7 +16,7 @@ mkdir -p $STATS_DIR
 
 export EXPERIMENT_NAME="euler-forward"
 export COMPILATION_ARGS=""
-export SIMULATION_ARGS="model_name=ThermalChipSimpleBoundaryEulerExp stop_time=0.4 num_intervals=266667"
+export SIMULATION_ARGS="model=ThermalChipSimpleBoundaryEulerExp stop_time=0.4 num_intervals=266667"
 
 "$path/compile_simulate_all.sh"
 
