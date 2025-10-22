@@ -9,7 +9,7 @@ find "$path" -type f \( -name "*.h" -o -name "*.hpp" -o -name "*.c" -o -name "*.
 # Binary
 
 # Compile the model
-cmake -S $path -B $BUILD_DIR
+cmake -S $path -B $BUILD_DIR -DCMAKE_BUILD_TYPE=Release
 
 COMPILATION_TIME_FILE=$STATS_DIR/cpp-compilation-time-$EXPERIMENT.txt
 /usr/bin/time -p -a -o $COMPILATION_TIME_FILE cmake --build $BUILD_DIR $COMPILATION_ARGS -- -j || exit 1
